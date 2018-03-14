@@ -1,4 +1,7 @@
-import { postItemSchema } from 'postItem'
+import mongoose from 'mongoose'
+
+import { postItemSchema } from './postItem'
+
 
 const postItemModel = mongoose.model('postItemSchema', postItemSchema);
 

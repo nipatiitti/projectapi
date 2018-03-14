@@ -1,6 +1,6 @@
 import database from './database/connection'
 
-import { logErrors, errorHandler } from './errors'
+import { logErrors, errorHandler } from './error'
 import handleGet from './get'
 import handlePost from './post'
 

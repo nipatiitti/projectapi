@@ -1,3 +1,3 @@
-export function example(Model, location) {
+export function getTopPosts(Model, location) {
 
 }
