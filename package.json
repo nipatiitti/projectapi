@@ -2,7 +2,7 @@
   "name": "projectapi",
   "version": "1.0.0",
   "description": "Website for learning",
-  "main": "server/index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/nipatiitti/projectapi.git",
   "author": "Niilo Jaakkola <niilo.jaakkola@icloud.com>",
   "license": "MIT",
