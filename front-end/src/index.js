@@ -1,8 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import { render } from 'react-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import Root from './routes/Root'
+
+import {store, persistor} from './configStore'
+
+import './styles/all.css'
+
+render(
+  <Root store={store} persistor={persistor} />,
+  document.getElementById('root')
+)
