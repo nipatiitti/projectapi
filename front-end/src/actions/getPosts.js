@@ -1,8 +1,6 @@
 import {loading, error, baseUrl} from './utils'
 import axios from 'axios'
 
-import history from '../history'
-
 export const newData = ( data ) => {
   return {
     type: 'NEW_DATA',
@@ -10,16 +8,13 @@ export const newData = ( data ) => {
   }
 }
 
-export const newPost = ( postObject ) => {
+export const getPosts = ( type ) => {
   return (dispatch) => {
     dispatch(loading(true))
-    axios.post(`${baseUrl}/api`, {
-      ...postObject
-    })
+    axios.get(`${baseUrl}/api?type=${type}`)
     .then(({data}) => {
-      dispatch(newData([data  ]))
+      dispatch(newData(data))
       dispatch(loading(false))
-      history.push('/')
     })
     .catch(e => {
       console.log(e)

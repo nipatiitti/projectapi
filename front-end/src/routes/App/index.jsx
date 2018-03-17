@@ -1,22 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
-import Text from '../../components/Text'
-
-const renderMain = () => (
-  <div className='searchContainer'>
-    <Text text="Welcome" />
-  </div>
-)
+import addPostContainer from '../../containers/addPostContainer'
+import mainContainer from '../../containers/mainContainer'
 
 const App = () => (
-  <div className='container'>
-    <Route exact path='/' render={renderMain} />
-  </div>
+  <Switch>
+    <Route exact path='/' render={mainContainer} />
+    <Route exact path='/add' render={addPostContainer} />
+  </Switch>
 )
 
-App.propTypes = {
-}
 
 export default App

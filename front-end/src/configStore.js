@@ -8,9 +8,9 @@ import thunk from 'redux-thunk'
 import main from './reducers/main'
 
 const persistConfig = {
-  key: 'nyxgen_root',
+  key: 'projectapi_root',
   storage,
-  blacklist: ['signin', 'error', 'loading', 'booking']
+  blacklist: []
 }
 
 const persistedReducer = persistReducer(persistConfig, main)
