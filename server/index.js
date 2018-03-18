@@ -23,11 +23,11 @@ database.once('open', () => {
 app.use(morgan('tiny'))
 
 // Priority serve static files.
-app.use(express.static(path.join(__dirname, '../frontend/build')))
+app.use(express.static(path.join(__dirname, '../front-end/build')))
 
 // Middlewares
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Handling errors
 app.use(logErrors)
