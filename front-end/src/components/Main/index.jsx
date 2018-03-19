@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import history from '../../history'
+
 import { NavLink } from 'react-router-dom'
 
 import PostItem from './PostItem'
@@ -28,7 +30,7 @@ class Main extends Component {
           <Button text="Add new"/>
         </NavLink>
         {!loading && data.map(item => (
-          <PostItem {...item} />
+          <PostItem {...item} key={item._id} onClick={() => history.push(`/items/${item._id}`)} />
         ))}
       </div>
     )
