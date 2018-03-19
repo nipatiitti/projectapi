@@ -1,9 +1,7 @@
 import database from './database/connection'
 
 import { logErrors, errorHandler } from './error'
-import handleGet from './get'
-import handlePost from './post'
-
+import api from './routes'
 import express from 'express'
 import path from 'path'
 import morgan from 'morgan'
@@ -40,14 +38,8 @@ app.use(function(req, res, next) {
   next()
 })
 
-// Handle API requests
-app.route('/api')
-  // GET, Return data asked if possible
-  .get((req, res) => handleGet(req, res))
-
-  // POST, Add data (if valid) to database
-  .post((req, res) => handlePost(req, res))
-
+// Use sub routes for routing
+app.use('/api', api)
 
 // For everything else return React so react can do extra routing
 app.get('*', (request, response) => {

@@ -1,5 +1,5 @@
-import { postItemModel } from './database/models'
-import { validatePostItem } from './validate'
+import { postItemModel } from '../database/models'
+import { validatePostItem } from '../validate'
 
 function handlePost(req, res) {
 
