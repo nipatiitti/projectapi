@@ -2,7 +2,7 @@ import MathJaxNode from './node'
 import MathJaxContext from './context'
 
 
-module.exports = {
+export default {
     Node:    MathJaxNode,
     Context: MathJaxContext
 }

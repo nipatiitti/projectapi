@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Text from '../Text'
 
 const TagChip = ({ text, onClick, selected }) => (
-  <div className={selected ? "chip selected" : "chip"} onClick={() => onClick(text)}>
+  <div className={selected ? "chip selected" : "chip"} onClick={() => {onClick && onClick(text)}}>
     {text}
   </div>
 )

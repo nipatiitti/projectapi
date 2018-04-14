@@ -23,7 +23,7 @@ class SearchBox extends Component {
 
     return (
       <div className="searchContainer">
-        <div onClick={() => this.setState({open: !open})}>{open ? <ChevronOpen/> : <ChevronClose/>}</div>
+        <div className="menuIcon" onClick={() => this.setState({open: !open})}>{open ? <ChevronOpen/> : <ChevronClose/>}</div>
         <div className={this.state.open ? 'searchBox open' : 'searchBox closed'}>
           <Input
             onChange={changeSearch}

@@ -1,24 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import process from 'process'
 
-class Add extends Component {
+const MathJaxNode = React.createClass({
   getDefaultProps() {
       return {
           inline:   false,
           onRender: () => {}
       }
-  }
+  },
 
   componentDidMount() {
       this.typeset()
-  }
+  },
 
   componentDidUpdate(prevProps) {
       const forceUpdate = prevProps.inline != this.props.inline
       this.typeset(forceUpdate)
-  }
+  },
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
       return (
@@ -26,11 +26,11 @@ class Add extends Component {
           || nextProps.inline != this.props.inline
           || nextContext.MathJax != this.context.MathJax
       )
-  }
+  },
 
   componentWillUnmount() {
       this.clear()
-  }
+  },
 
   clear() {
       const { MathJax } = this.context;
@@ -43,7 +43,7 @@ class Add extends Component {
       if (jax) {
           jax.Remove()
       }
-  }
+  },
 
   typeset(forceUpdate) {
       const { MathJax } = this.context
@@ -75,7 +75,7 @@ class Add extends Component {
           const script = this.setScriptText(text)
           process(MathJax, script, onRender)
       }
-  }
+  },
 
   setScriptText(text) {
       const { inline } = this.props
@@ -93,19 +93,19 @@ class Add extends Component {
       }
 
       return this.script
-  }
+  },
 
   render() {
       return <span ref="node" />
   }
 
 
-}
+})
 
-MathJaxNode.propTypes: {
+MathJaxNode.propTypes = {
     inline:  PropTypes.bool,
     children: PropTypes.node.isRequired,
     onRender: PropTypes.func
 }
 
-module.exports = MathJaxNode
+export default MathJaxNode

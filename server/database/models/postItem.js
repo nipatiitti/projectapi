@@ -10,11 +10,7 @@ export const postItemSchema = mongoose.Schema({
     default : 'math',
     enum : ['math', 'biology', 'historia', 'physics', 'other']
   },
-  tag: {
-    type : String,
-    default : 'derivaatta',
-    enum : ['derivaatta', 'integraali', 'yo', 'geometria', 'other']
-  },
+  tags: Array,
   comments: [{ body: String, date: Number }],
   createdAt: Number,
   meta: {

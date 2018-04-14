@@ -7,9 +7,11 @@ import { NavLink } from 'react-router-dom'
 
 import SearchContainer from '../../containers/searchContainer'
 
+import AddIcon from 'react-icons/lib/fa/plus';
 import PostItem from './PostItem'
 
 import Button from '../Button'
+import FloatButton from '../floatButton'
 import Text from '../Text'
 
 class Main extends Component {
@@ -24,18 +26,17 @@ class Main extends Component {
   render() {
 
     const { data, loading } = this.props
-
     return (
       <div className='mainView'>
         <div className='top'>
           <Text text="Welcome" />
+            <NavLink to="/add">
+              <FloatButton icon={<AddIcon />}/>
+            </NavLink>
         </div>
         <div className='container'>
           <SearchContainer />
           <div className='body'>
-            <NavLink to="/add">
-              <Button text="Add new"/>
-            </NavLink>
             {!loading && data.map(item => (
               <PostItem {...item} key={item._id} onClick={() => history.push(`/items/${item._id}`)} />
             ))}

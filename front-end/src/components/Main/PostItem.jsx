@@ -1,16 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Text from '../../components/Text'
+import Text from '../Text'
+import Chip from '../Search/searchTags'
 
-const Main = ({ author, body, title, onClick }) => (
-  <div className="postItem" onClick={onClick}>
-    <Text text={`Title: ${title}`} />
-  </div>
-)
+
+const Main = ({ tags, body, title, onClick }) => {
+
+  let allTags = [];
+  tags.forEach(tag => allTags.push(tag))
+
+  return (
+    <div className="postItem" onClick={onClick}>
+      <Text text={`${title}`} />
+      <div className="chipContainer">
+        {allTags.map(tag => (
+          <Chip selected={false} text={tag} />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 Main.propTypes = {
-  author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired

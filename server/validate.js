@@ -1,7 +1,7 @@
 export const validatePostItem = ( postItem ) => {
   if (
     postItem.title
-    && postItem.author
+    && postItem.tags
     && postItem.body
   ) return true
   else return false

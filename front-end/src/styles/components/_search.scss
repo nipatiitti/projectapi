@@ -1,12 +1,17 @@
 .searchContainer {
   display: flex;
   flex-direction: row;
+  border-left: 1px solid $darkgrey;
+}
+
+.menuIcon {
+  margin: 5px;
 }
 
 .searchBox {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
+  overflow-y: scroll;
+  padding: 10px;
+  border-radius: 5px;
 
   &.open {
     flex: 1;
@@ -19,7 +24,6 @@
 
 .chip {
   cursor: pointer;
-  height: 30px;
   border-radius: 15px;
   background-color: white;
   border: 1px solid $darkgrey;
@@ -27,6 +31,7 @@
   justify-content: center;
   align-items: center;
   min-height: 30px;
+  margin-top: 5px;
 
   &.selected {
     background-color: $lightgrey;

@@ -4,3 +4,16 @@
   border-radius: 3px;
   border: 1px solid $lightgrey;
 }
+
+.chipContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  div {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

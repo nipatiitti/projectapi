@@ -22,19 +22,27 @@
   }
 }
 
+.margintop {
+  height: 300px;
+}
+
 .tagSelect {
   overflow-y: scroll;
   flex: 1;
   background-color: white;
   border-left: 1px solid $darkgrey;
   padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
 .floatButtons {
   position: absolute;
   left: 20px;
   bottom: 20px;
+}
+
+.preview {
+  flex: 1;
+  padding: .5em;
+  border-radius: 3px;
+  border: 1px solid $lightgrey;
 }
