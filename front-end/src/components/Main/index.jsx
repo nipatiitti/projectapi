@@ -6,7 +6,7 @@ import history from '../../history'
 import { NavLink } from 'react-router-dom'
 
 import SearchContainer from '../../containers/searchContainer'
-
+//import image from '../media/mathabi.png'
 import AddIcon from 'react-icons/lib/fa/plus';
 import PostItem from './PostItem'
 
@@ -25,14 +25,31 @@ class Main extends Component {
 
   render() {
 
-    const { data, loading } = this.props
+    const { loading, tags } = this.props
+
+    let data = this.props.data
+
+    if(tags.length > 0)
+      data = data.filter(item => {
+        let toShow = false
+
+        item.tags.forEach(tag => {
+          if (tags.includes(tag))
+            toShow = true
+        })
+
+        return toShow
+      })
+
     return (
       <div className='mainView'>
+        <div className="floatButtons">
+          <NavLink to="/add">
+            <FloatButton icon={<AddIcon />}/>
+          </NavLink>
+        </div>
         <div className='top'>
           <Text text="Welcome" />
-            <NavLink to="/add">
-              <FloatButton icon={<AddIcon />}/>
-            </NavLink>
         </div>
         <div className='container'>
           <SearchContainer />

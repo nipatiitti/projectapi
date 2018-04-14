@@ -24,3 +24,12 @@
   flex-direction: row-reverse;
   width: 100%;
 }
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex: 8;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+}

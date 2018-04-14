@@ -8,7 +8,8 @@ import Main from '../components/Main'
 const mapStateToProps = state => {
   return {
     data: state.data.data,
-    loading: state.loading.loading
+    loading: state.loading.loading,
+    tags: state.data.tags
   }
 }
 
