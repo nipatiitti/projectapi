@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const MultilineInput = ({ value, onChange, placeholder, ...other}) => (
   <textarea
-    className='input'
+    className='multilineinput'
     placeholder={placeholder}
     onChange={onChange}
     value={value}

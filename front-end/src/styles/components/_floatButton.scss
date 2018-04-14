@@ -1,0 +1,13 @@
+.floatButton {
+  color: white;
+  background-color: $darkgrey;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  box-shadow: -2px 2px 5px 0px rgba(0,0,0,0.75);
+  border: 1px solid black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

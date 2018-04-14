@@ -5,6 +5,8 @@ import history from '../../history'
 
 import { NavLink } from 'react-router-dom'
 
+import SearchContainer from '../../containers/searchContainer'
+
 import PostItem from './PostItem'
 
 import Button from '../Button'
@@ -25,13 +27,20 @@ class Main extends Component {
 
     return (
       <div className='mainView'>
-        <Text text="Welcome" />
-        <NavLink to="/add">
-          <Button text="Add new"/>
-        </NavLink>
-        {!loading && data.map(item => (
-          <PostItem {...item} key={item._id} onClick={() => history.push(`/items/${item._id}`)} />
-        ))}
+        <div className='top'>
+          <Text text="Welcome" />
+        </div>
+        <div className='container'>
+          <SearchContainer />
+          <div className='body'>
+            <NavLink to="/add">
+              <Button text="Add new"/>
+            </NavLink>
+            {!loading && data.map(item => (
+              <PostItem {...item} key={item._id} onClick={() => history.push(`/items/${item._id}`)} />
+            ))}
+          </div>
+        </div>
       </div>
     )
   }

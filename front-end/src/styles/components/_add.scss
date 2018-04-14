@@ -1,16 +1,40 @@
 .add {
   &-container {
-    margin: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
     width: 100%;
+  }
 
+  &-body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    flex: 4;
+    padding: 5px;
   }
 
-  &-item {
+  &-inputs {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 4;
   }
+}
+
+.tagSelect {
+  overflow-y: scroll;
+  flex: 1;
+  background-color: white;
+  border-left: 1px solid $darkgrey;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.floatButtons {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
 }

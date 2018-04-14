@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import AddIcon from 'react-icons/lib/fa/plus';
+
 import Input from '../Input'
 import MultilineInput from '../MultilineInput'
-
 import Text from '../Text'
 import Button from '../Button'
+import FloatButton from '../floatButton'
+
+import TagSelect from './tagSelect'
 
 class Add extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      author: '',
+      selectedTags: [],
       body: '',
       title: ''
     }
@@ -24,11 +28,27 @@ class Add extends Component {
     })
   }
 
-  postItem = () => {
-    const { author, body, title } = this.state
+  handleSelect = ( tag ) => {
+    const contains = this.state.selectedTags.includes(tag)
 
-    if (author !== '' && body !== '' && title !== '') {
-      this.props.newPost({author, body, title})
+    if(contains){
+      const newSelectedTags = this.state.selectedTags.filter(item => item !== tag)
+      this.setState({
+        selectedTags: newSelectedTags
+      })
+    } else {
+      const newSelectedTags = this.state.selectedTags.concat([tag])
+      this.setState({
+        selectedTags: newSelectedTags
+      })
+    }
+  }
+
+  postItem = () => {
+    const { selectedTags, body, title } = this.state
+
+    if (body !== '' && title !== '') {
+      this.props.newPost({body, title, selectedTags})
     } else {
       alert("One or more empty fields")
     }
@@ -37,39 +57,28 @@ class Add extends Component {
 
   render() {
 
-    const { author, body, title } = this.state
+    const { body, title, open } = this.state
 
     return (
       <div className="add-container">
-        <div className="add-item">
-          <Text text="Author: " />
-          <Input
-            onChange={this.handleChange('author')}
-            placeholder="Author"
-            value={author}
-          />
-        </div>
-
-        <div className="add-item">
-          <Text text="Title: " />
+        <TagSelect onSelect={this.handleSelect}  selectedTags={this.state.selectedTags}/>
+        <div className="add-body">
+          <div className="add-inputs">
             <Input
               onChange={this.handleChange('title')}
               placeholder="Title"
               value={title}
             />
-        </div>
 
-        <div className="add-item">
-          <Text text="Body: " />
             <MultilineInput
               onChange={this.handleChange('body')}
               placeholder="Main content"
               value={body}
             />
+          </div>
+
+          <Button text="Add new" onClick={this.postItem}/>
         </div>
-
-
-        <Button text="Add new" onClick={this.postItem}/>
       </div>
     )
   }

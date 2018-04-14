@@ -5,6 +5,14 @@
   border: 1px solid $lightgrey;
 }
 
+.multilineinput {
+  margin: 10px;
+  height: 100%;
+  padding: .5em;
+  border-radius: 3px;
+  border: 1px solid $lightgrey;
+}
+
 textarea {
    resize: none;
 }

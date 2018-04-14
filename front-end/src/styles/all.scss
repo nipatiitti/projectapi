@@ -5,6 +5,7 @@
 html {
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 body {
@@ -14,6 +15,7 @@ body {
   display: flex;
   flex-basis: auto;
   flex-grow: 1;
+  height: 100%;
 }
 
 a {
@@ -21,6 +23,7 @@ a {
 }
 
 #root {
+  height: 100%;
   flex: 1;
   display: flex;
   justify-content: center;
